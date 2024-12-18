@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 headless_chrome = { version = "1.0.15", features = ["rustls"] }
+rustls = { version = "0.23.20", default-features = false, features = ["std", "logging", "aws_lc_rs", "tls12"] }
 
 [features]
 static = []
