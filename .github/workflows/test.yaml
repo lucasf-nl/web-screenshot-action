@@ -7,3 +7,7 @@ jobs:
       - uses: ./
         with:
           url: "https://example.com/"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshot_png
+          path: ./screenshot.png
