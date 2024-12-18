@@ -18,7 +18,7 @@ FROM alpine:3.21
 RUN apk upgrade --no-cache --available \
     && apk add --no-cache \
         chromium-swiftshader \
-        tff-freefont \
+        ttf-freefont \
         font-noto-emoji
 
 ENV CHROME_BIN=/usr/bin/chromium-browser
