@@ -27,4 +27,10 @@ ENV CHROME_PATH=/user/lib/chromium
 WORKDIR /
 COPY --from=build /web-screenshot-action/target/x86_64-unknown-linux-musl/release/web-screenshot-action /web-screenshot-action
 
+RUN mkdir -p /home/wsa \
+    && adduser -D wsa \
+    && chown -R wsa:wsa /home/wsa
+USER wsa
+WORKDIR /home/wsa
+
 ENTRYPOINT ["/web-screenshot-action"]
