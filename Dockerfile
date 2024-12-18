@@ -1,4 +1,5 @@
-FROM rust:1.83-alpine3.21 as build
+#FROM rust:1.83-alpine3.21 as build
+FROM ekidd/rust-musl-builder as build
 
 WORKDIR /web-screenshot-action
 
