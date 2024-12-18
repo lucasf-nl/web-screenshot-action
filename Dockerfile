@@ -1,12 +1,4 @@
-# FROM rust:1.83-alpine3.21 as build
-
-# project requires edition 2024 which is not available
-# in the official rust docker containers at the moment
-# use nightly on alpine instead:
-FROM alpine:3.21 as build
-RUN apk add curl
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-RUN ~/.cargo/bin/rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy
+FROM rust:1.83-alpine3.21 as build
 
 WORKDIR /web-screenshot-action
 
