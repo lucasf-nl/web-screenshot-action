@@ -7,7 +7,7 @@ COPY ./Cargo.toml ./Cargo.toml
 COPY ./src ./src
 
 ENV RUSTFLAGS="-C target-feature=+crt-static -C link-self-contained=yes"
-RUN ~/.cargo/bin/cargo build --release --target x86_64-unknown-linux-musl --features static
+RUN cargo build --release --target x86_64-unknown-linux-musl --features static
 
 FROM scratch
 
