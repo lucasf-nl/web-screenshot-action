@@ -8,11 +8,10 @@ COPY ./src ./src
 
 ENV RUSTFLAGS="-C target-feature=+crt-static -C link-self-contained=yes"
 RUN cargo build --release --target x86_64-unknown-linux-musl --features static
-RUN find ./target
 
 FROM scratch
 
 WORKDIR /
-COPY --from=build /web-screenshot-action/target/release/web-screenshot-action /web-screenshot-action
+COPY --from=build /web-screenshot-action/target/x86_64-unknown-linux-musl/release/web-screenshot-action /web-screenshot-action
 
 ENTRYPOINT ["/web-screenshot-action"]
