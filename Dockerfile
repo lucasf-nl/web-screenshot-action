@@ -23,6 +23,7 @@ RUN apk upgrade --no-cache --available \
 
 ENV CHROME_BIN=/usr/bin/chromium-browser
 ENV CHROME_PATH=/user/lib/chromium
+ENV CHROMIUM_FLAGS="--disable-software-rasterizer --disable-dev-shm-usage"
 
 WORKDIR /
 COPY --from=build /web-screenshot-action/target/x86_64-unknown-linux-musl/release/web-screenshot-action /web-screenshot-action
