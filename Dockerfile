@@ -6,7 +6,7 @@
 FROM alpine:3.21 as build
 RUN apk add curl
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-RUN rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy
+RUN ~/.cargo/bin/rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy
 
 WORKDIR /web-screenshot-action
 
@@ -15,7 +15,7 @@ COPY ./Cargo.toml ./Cargo.toml
 COPY ./src ./src
 
 ENV RUSTFLAGS="-C target-feature=+crt-static -C link-self-contained=yes"
-RUN cargo build --release --target x86_64-unknown-linux-musl --features static
+RUN ~/.cargo/bin/cargo build --release --target x86_64-unknown-linux-musl --features static
 
 FROM scratch
 
