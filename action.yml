@@ -13,3 +13,5 @@ runs:
   image: 'Dockerfile'
   env:
     WSA_URL: ${{ inputs.wsa_url }}
+    RUST_BACKTRACE: 1
+    RUST_LOG: headless_chrome=trace
