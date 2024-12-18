@@ -3,7 +3,7 @@
 # project requires edition 2024 which is not available
 # in the official rust docker containers at the moment
 # use nightly on alpine instead:
-FROM alpine
+FROM alpine:3.21 as build
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 RUN rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy
 
